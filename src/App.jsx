@@ -28,7 +28,7 @@ const App = () => {
   return (
     <Container>
       <Sidebar />
-
+cccc
       <PostForm onSubmit={handleNewPost} />
       <Timeline posts={posts} />
     </Container>
