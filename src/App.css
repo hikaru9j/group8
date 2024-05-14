@@ -9,16 +9,21 @@
     box-sizing: border-box;
   }
 
-  .container{
-    display: grid;
-  }
+
   
+
   .Sidebar {
     height: 100%;
     width: 250px;
-    background: #2d445d;
+    background: #f2f4f7;
   }
   
+.Sidebar-container{
+  width:250px;
+
+}
+
+
   .SidebarList {
     height: auto;
     padding: 0;
@@ -31,18 +36,18 @@
     /* background-color: cadetblue; */
     /* border: 1px solid black; */
     display: flex;
-    color: white;
+    color:#4d5156 ;
     justify-content: center;
     align-items: center;
   }
   
   .SidebarList .row:hover {
     cursor: pointer;
-    background-color: #3b627a;
+    background-color:#89cfeb;
   }
   
   .SidebarList #active {
-    background-color: #3b627a;
+    background-color: #89cfeb;
   }
   
   .row #icon {
@@ -66,7 +71,7 @@
   }
   
   .SidebarIcon p {
-    color: white;
+    color:#4d5156 ;
     font-weight: 600;
     font-size: 13px;
   }

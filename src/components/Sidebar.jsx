@@ -1,8 +1,10 @@
 import React from "react";
 import { SidebarData } from "./SidebarData";
+import "../App.css";
 
 function Sidebar() {
   return (
+    <div className="Sidebar-container">
     <div className="Sidebar">
       <ul className="SidebarList">
         {SidebarData.map((value, key) => {
@@ -21,6 +23,7 @@ function Sidebar() {
           );
         })}
       </ul>
+    </div>
     </div>
   );
 }
