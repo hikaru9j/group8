@@ -4,6 +4,7 @@
       "id": "1",
       "content": "contents",
       "author": "author",
+      "Age": "20",
       "tags": [
         "勉強",
         "試験",
@@ -14,6 +15,7 @@
       "id": "3362",
       "content": "",
       "author": "author",
+      "Age": "18",
       "tags": [
         "勉強",
         "結婚",
@@ -23,202 +25,12 @@
       ]
     },
     {
-      "id": "0194",
-      "content": "今日は勉強が大変だった",
-      "author": "author",
-      "tags": [
-        "勉強",
-        "試験",
-        "受験"
-      ]
-    },
-    {
-      "id": "3091",
-      "content": "今日は勉強が大変だった",
-      "author": "author",
-      "tags": [
-        "勉強",
-        "試験",
-        "受験"
-      ]
-    },
-    {
-      "id": "ce56",
-      "content": "今日は勉強が大変だった",
-      "author": "author",
-      "tags": [
-        "勉強",
-        "試験",
-        "受験"
-      ]
-    },
-    {
-      "id": "6a30",
-      "content": "今日は勉強が大変だった",
-      "author": "author",
-      "tags": [
-        "勉強",
-        "試験",
-        "受験"
-      ]
-    },
-    {
-      "id": "505a",
-      "content": "今日は勉強が大変だった",
-      "author": "author",
-      "tags": [
-        "勉強",
-        "試験",
-        "受験"
-      ]
-    },
-    {
-      "id": "6ef8",
-      "content": "今日は勉強が大変だった",
-      "author": "author",
-      "tags": [
-        "勉強",
-        "試験",
-        "受験"
-      ]
-    },
-    {
-      "id": "50f4",
-      "content": "",
-      "author": "author",
-      "tags": []
-    },
-    {
-      "id": "51e5",
-      "content": "今日も行きた",
-      "author": "author",
-      "tags": [
-        "生活",
-        "就活"
-      ]
-    },
-    {
-      "id": "3def",
-      "content": "今日も生きていられた",
-      "author": "author",
-      "tags": [
-        "生活"
-      ]
-    },
-    {
-      "id": "c249",
-      "content": "今日も生きていられた",
-      "author": "author",
-      "tags": [
-        "生活",
-        "試験"
-      ]
-    },
-    {
-      "id": "404a",
-      "content": "今日も生きていられた",
-      "author": "author",
-      "tags": [
-        "生活",
-        "試験",
-        "受験"
-      ]
-    },
-    {
-      "id": "12e8",
+      "id": "b96a",
       "content": "あいうえお",
       "author": "author",
+      "Age": "5",
       "tags": [
-        "生活",
-        "試験",
-        "結婚",
         "試験"
-      ]
-    },
-    {
-      "id": "8c5e",
-      "content": "就職活動は３年生の４月から始めよう",
-      "author": "author",
-      "tags": [
-        "就活"
-      ]
-    },
-    {
-      "id": "c72a",
-      "content": "",
-      "author": "author",
-      "tags": []
-    },
-    {
-      "id": "b2ea",
-      "content": "",
-      "author": "author",
-      "tags": []
-    },
-    {
-      "id": "804f",
-      "content": "おはようございます",
-      "author": "author",
-      "tags": [
-        "生活"
-      ]
-    },
-    {
-      "id": "a0b9",
-      "content": "",
-      "author": "author",
-      "tags": [
-        "勉強",
-        "就活",
-        "試験"
-      ]
-    },
-    {
-      "id": "cbfa",
-      "content": "うううう",
-      "author": "author",
-      "tags": [
-        "勉強",
-        "結婚"
-      ]
-    },
-    {
-      "id": "686a",
-      "content": "あいうえお",
-      "author": "author",
-      "tags": []
-    },
-    {
-      "id": "f44d",
-      "content": "",
-      "author": "author",
-      "tags": []
-    },
-    {
-      "id": "8145",
-      "content": "",
-      "author": "author",
-      "tags": []
-    },
-    {
-      "id": "b381",
-      "content": "",
-      "author": "author",
-      "tags": []
-    },
-    {
-      "id": "ba4e",
-      "content": "",
-      "author": "author",
-      "tags": []
-    },
-    {
-      "id": "9f4e",
-      "content": "aaaa",
-      "author": "author",
-      "tags": [
-        "就活",
-        "受験"
       ]
     }
   ]

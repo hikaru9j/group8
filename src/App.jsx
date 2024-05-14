@@ -1,11 +1,7 @@
 
-import Sidebar from "./components/Sidebar"; // Sidebar コンポーネントのインポートを想定しています。
-import Header from "./components/Header"; // Header コンポーネントのインポートを想定しています。
+import Sidebar from "./components/Sidebar"; 
+import Header from "./components/Header"; 
 
-// src/App.js
-import Container from "@mui/material/Container";
-import PostForm from "./components/PostForm";
-import Timeline from "./components/Timeline";
 
 // const mockPosts = [
 //   { id: 1, author: "User1", content: "This is the first post" },
@@ -37,7 +33,7 @@ import Timeline from "./components/Timeline";
 
 import { useEffect, useState } from "react";
 import "./reset.css";
-import { Button, Card, CardContent, Typography, TextField, Box, Chip } from "@mui/material"; 
+import { Button, Card, CardContent, TextField, Box, Chip } from "@mui/material"; 
 import "./App.css";
 
 const TAGS = ["生活", "勉強", "試験", "就活", "結婚", "受験"];
@@ -46,6 +42,7 @@ export const App = () => {
   const [posts, setPosts] = useState([]);
   const [content, setContent] = useState("");
   const [tags, setTags] = useState([]);
+  const [age, setAge] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3300/posts")
@@ -60,7 +57,6 @@ export const App = () => {
   return (
   <div>
     <Header />
-    <Sidebar />
     
     <div className="container"> 
       <div className="input-container">
@@ -75,7 +71,8 @@ export const App = () => {
           setContent(e.target.value);
         }}
       /> */}
-      <TextField // Changed: input から TextField へ変更
+      
+      <TextField 
             fullWidth
             multiline
             rows={4}
@@ -84,6 +81,7 @@ export const App = () => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
+      
       </div>
 {/*削除機能をつける前のコード */}
       {/* <div>
@@ -99,7 +97,17 @@ export const App = () => {
           </span>
         ))}
       </div>
+    <div className="select-button-container">
+    <input className="age-input"
+        type="number"
+        placeholder="年齢"
+        value={age}
+        onChange={(e) => setAge(e.target.value)}
+        style={{ marginRight: "10px" }}
+      />
+     
 
+    
       <select
         onChange={(e) => {
           if (e.target.value !== "") {
@@ -107,7 +115,7 @@ export const App = () => {
           }
         }}
       >
-        <option value="">選択してください</option>
+        <option value="">タグ</option>
         {TAGS.map((tag, index) => {
           return (
             <option key={index} value={tag}>
@@ -125,6 +133,7 @@ export const App = () => {
             body: JSON.stringify({
               content: content,
               author: "author",
+              Age:age,
               tags: tags,
             }),
             headers: {
@@ -140,9 +149,9 @@ export const App = () => {
       >
         投稿を追加
       </Button>
-
+    </div>
       <div>
-        {posts.map((post, index) => {
+        {/* {posts.map((post, index) => {
           return (
             <div className="card" key={post.id}>
               {post.id}:{post.content}:{post.author}:
@@ -151,7 +160,24 @@ export const App = () => {
               ))}
             </div>
           );
-        })}
+        })} */}
+
+           {posts.map((post) => (
+            <Card className="card" key={post.id} sx={{ marginBottom: 2 }}>
+              <CardContent className="post-box">
+                <div className="post-author">{post.author}</div>
+                <div className="post-age">{post.Age+"歳"}</div>
+                <div className="post-content">{post.content}</div>
+                
+                <Box mt={1}>
+                  {post.tags.map((tag, idx) => (
+                    <Chip key={idx} label={`#${tag}`} style={{ marginRight: 4 }} />
+
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
+          ))}
       </div>
     </div>
   </div>
