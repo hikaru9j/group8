@@ -33,7 +33,7 @@ import Header from "./components/Header";
 
 import { useEffect, useState } from "react";
 import "./reset.css";
-import { Button, Card, CardContent, TextField, Box, Chip } from "@mui/material"; 
+import { Button, Card, CardContent, TextField, Box, Chip,Container,Paper } from "@mui/material"; 
 import "./App.css";
 
 const TAGS = ["生活", "勉強", "試験", "就活", "結婚", "受験"];
@@ -57,21 +57,10 @@ export const App = () => {
   return (
   <div>
     <Header />
-    
-    <div className="container"> 
-      <div className="input-container">
-      {/* <input
-        style={{
-          height: "200px",
-          width: "%",
-          outline: "black solid 1px",
-        }}
-        type="text"
-        onChange={(e) => {
-          setContent(e.target.value);
-        }}
-      /> */}
-      
+{/* ここから投稿コンテナ */}
+    <Box >
+      <Container sx={{width:"70%"}}> 
+
       <TextField 
             fullWidth
             multiline
@@ -81,41 +70,23 @@ export const App = () => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-      
-      </div>
-{/*削除機能をつける前のコード */}
-      {/* <div>
-        {tags.map((tag, index) => (
-          <span key={index}>#{tag} </span>
-        ))}
-      </div> */}
-
-      <div>
-        {tags.map((tag, index) => (
-          <span key={index}>
-            #{tag} <span onClick={() => removeTag(index)} style={{cursor: 'pointer', color: 'red'}}>×</span>
-          </span>
-        ))}
-      </div>
-    <div className="select-button-container">
-    <input className="age-input"
-        type="number"
-        placeholder="年齢"
-        value={age}
-        onChange={(e) => setAge(e.target.value)}
-        style={{ marginRight: "10px" }}
+      <TextField 
+      type="number"
+      label="当時の年齢を入力してください"
+      value={age}
+      onChange={(e) => setAge(e.target.value)}
+      style={{ marginRight: "10px" ,width:"100%"}}
+      variant="outlined"
       />
-     
-
-    
-      <select
+        
+      <select className="tag-select"
         onChange={(e) => {
           if (e.target.value !== "") {
             setTags((prev) => [...prev, e.target.value]);
           }
         }}
       >
-        <option value="">タグ</option>
+        <option value="">タグを入力してください</option>
         {TAGS.map((tag, index) => {
           return (
             <option key={index} value={tag}>
@@ -124,7 +95,6 @@ export const App = () => {
           );
         })}
       </select>
-
       <Button variant="contained"
       sx={{ backgroundColor: '#89cfeb' , color: '#4d5156' }}
         onClick={() => {
@@ -149,37 +119,44 @@ export const App = () => {
       >
         投稿を追加
       </Button>
-    </div>
+   
       <div>
-        {/* {posts.map((post, index) => {
-          return (
-            <div className="card" key={post.id}>
-              {post.id}:{post.content}:{post.author}:
-              {post.tags.map((tag, idx) => (
-                <span key={idx}>#{tag} </span>
-              ))}
-            </div>
-          );
-        })} */}
-
+        {tags.map((tag, index) => (
+          <span key={index}>
+            #{tag} <span onClick={() => removeTag(index)} style={{cursor: 'pointer', color: 'red'}}>×</span>
+          </span>
+        ))}
+      </div>
+      
+      </Container> 
+{/* ここまで投稿コンテナ */}
+{/* ここから投稿表示エリア */}
+      <Container sx={{width:"70%"}}>
+ 
            {posts.map((post) => (
             <Card className="card" key={post.id} sx={{ marginBottom: 2 }}>
-              <CardContent className="post-box">
-                <div className="post-author">{post.author}</div>
-                <div className="post-age">{post.Age+"歳"}</div>
-                <div className="post-content">{post.content}</div>
-                
-                <Box mt={1}>
+              <div class="card-header">
+              <div className="post-author">{post.author}</div>
+              <div className="post-age">{post.Age+"歳"}</div>
+              </div>
+              <Box mt={1}>
                   {post.tags.map((tag, idx) => (
                     <Chip key={idx} label={`#${tag}`} style={{ marginRight: 4 }} />
 
                   ))}
-                </Box>
+              </Box>
+              <CardContent className="post-box">
+                
+                <div className="post-content">{post.content}</div>
+                
+                
               </CardContent>
             </Card>
           ))}
-      </div>
-    </div>
+      </Container>
+{/* ここまで投稿表示エリア */}
+    </Box>
   </div>
+  
   );
 };
