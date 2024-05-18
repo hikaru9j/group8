@@ -1,42 +1,19 @@
 
 import Sidebar from "./components/Sidebar"; 
 import Header from "./components/Header"; 
-
-
-// const mockPosts = [
-//   { id: 1, author: "User1", content: "This is the first post" },
-//   { id: 2, author: "User2", content: "Here is another post" },
-// ];
-
-// const App = () => {
-//   const [posts, setPosts] = useState(mockPosts);
-
-//   const handleNewPost = (newContent) => {
-//     const newPost = {
-//       id: posts.length + 1,
-//       author: "UserNew",
-//       content: newContent,
-//     };
-//     setPosts([...posts, newPost]);
-//   };
-
-//   return (
-//     <Container>
-//       <Sidebar />
-//       <PostForm onSubmit={handleNewPost} />
-//       <Timeline posts={posts} />
-//     </Container>
-//   );
-// };
-
-// export default App;
+import PopularTags from "./components/PupularTags";
+import LikeButton from "./components/LikeButton";
+import ReactionButton from "./components/ReactionButton";
 
 import { useEffect, useState } from "react";
 import "./reset.css";
-import { Button, Card, CardContent, TextField, Box, Chip,Container,Paper } from "@mui/material"; 
+import { Button, Card, CardContent, TextField, Box, Chip,Container,Paper, Typography } from "@mui/material"; 
+
+
 import "./App.css";
 
 const TAGS = ["生活", "勉強", "試験", "就活", "結婚", "受験"];
+const POPULAR_TAGS = ["試験", "就活", "生活"];
 
 export const App = () => {
   const [posts, setPosts] = useState([]);
@@ -57,9 +34,12 @@ export const App = () => {
   return (
   <div>
     <Header />
+    <Box>
+    <PopularTags  />  
+      
 {/* ここから投稿コンテナ */}
-    <Box >
-      <Container sx={{width:"70%"}}> 
+    <Box sx={{  }}>
+      <Container sx={{width:"50%"}}> 
 
       <TextField 
             fullWidth
@@ -102,7 +82,7 @@ export const App = () => {
             method: "POST",
             body: JSON.stringify({
               content: content,
-              author: "author",
+              author: author,
               Age:age,
               tags: tags,
             }),
@@ -131,30 +111,31 @@ export const App = () => {
       </Container> 
 {/* ここまで投稿コンテナ */}
 {/* ここから投稿表示エリア */}
-      <Container sx={{width:"70%"}}>
+      <Container sx={{width:"50%"}}>
  
            {posts.map((post) => (
-            <Card className="card" key={post.id} sx={{ marginBottom: 2 }}>
+            <Card className="card" key={post.id} sx={{ marginBottom: 2 , overflow: 'auto' }}>
               <div class="card-header">
-              <div className="post-author">{post.author}</div>
-              <div className="post-age">{post.Age+"歳"}</div>
+              <Typography variant="h7">{post.author}</Typography>
+              <Typography variant="h7">{post.Age+"歳"}</Typography>
               </div>
               <Box mt={1}>
                   {post.tags.map((tag, idx) => (
-                    <Chip key={idx} label={`#${tag}`} style={{ marginRight: 4 }} />
+                    <Chip key={idx} label={`#${tag}`} style={{ marginRight: 4 ,marginBottom:4}} />
 
                   ))}
               </Box>
-              <CardContent className="post-box">
-                
-                <div className="post-content">{post.content}</div>
-                
-                
+              <CardContent sx={{ marginTop:"5px",border: '1px solid #000',width:"100%",height:"60%" ,overflow: 'auto'}}>
+                <Typography variant="body2" >{post.content}</Typography>
               </CardContent>
+              <div className="card-footer" >
+                <ReactionButton />
+              </div>
             </Card>
           ))}
       </Container>
 {/* ここまで投稿表示エリア */}
+    </Box>
     </Box>
   </div>
   
