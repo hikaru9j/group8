@@ -2,8 +2,9 @@
 import Sidebar from "./components/Sidebar"; 
 import Header from "./components/Header"; 
 import PopularTags from "./components/PupularTags";
-import LikeButton from "./components/LikeButton";
+
 import ReactionButton from "./components/ReactionButton";
+import PopularTagsPage from "./components/PopularTagsPage";
 
 import { useEffect, useState } from "react";
 import "./reset.css";
